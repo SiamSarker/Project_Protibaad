@@ -7,6 +7,7 @@ error_reporting(0);
 session_start();
 
 
+// hi
 if (isset($_SESSION['username'])) {
 	$title = $_GET['title'];
 	$type = $_GET['type'];
