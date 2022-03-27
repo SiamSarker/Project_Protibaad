@@ -14,7 +14,7 @@ if (isset($_SESSION['username'])) {
 	$description = $_GET['description'];
     $location = $_GET['location'];
     // $time = $_GET['appt'];
-    // $date = $_GET['trip-start'];
+    //// $date = $_GET['trip-start'];
 
     echo $location;
 	
