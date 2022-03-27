@@ -31,7 +31,7 @@ if (isset($_SESSION['username'])) {
     // echo $img_dst_path;
 
     
-	
+	//insertion
     $sql = "INSERT INTO blog (title, description, image) VALUES ('$title', '$description', '$image')";
 	$result = mysqli_query($conn, $sql);
     
