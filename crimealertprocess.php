@@ -15,6 +15,8 @@ if (isset($_SESSION['username'])) {
     $location = $_GET['location'];
     // $time = $_GET['appt'];
     //// $date = $_GET['trip-start'];
+    // $date = $_GET['trip-start'];
+    //new chng
 
     echo $location;
 	

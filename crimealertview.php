@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 ?>
-
+// view
 
 <!DOCTYPE html>
 <html lang="en">

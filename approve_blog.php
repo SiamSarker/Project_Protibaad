@@ -35,4 +35,6 @@
       <script>location.assign("index.php");</script>
       <?php
     }
+
+    // approve
 ?>

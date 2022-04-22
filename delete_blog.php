@@ -22,7 +22,7 @@
                 <?php
             }
 
-
+// delete blog
         }
         else{
           ?>

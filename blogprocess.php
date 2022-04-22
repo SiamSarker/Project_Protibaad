@@ -6,6 +6,7 @@ error_reporting(0);
 
 session_start();
 
+// blog process
 
 if (isset($_SESSION['username'])) {
 	$title = $_GET['title'];
