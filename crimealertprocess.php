@@ -5,6 +5,7 @@ include 'config.php';
 error_reporting(0);
 
 session_start();
+//new
 
 
 if (isset($_SESSION['username'])) {
@@ -13,6 +14,7 @@ if (isset($_SESSION['username'])) {
 	$description = $_GET['description'];
     $location = $_GET['location'];
     // $time = $_GET['appt'];
+    //// $date = $_GET['trip-start'];
     // $date = $_GET['trip-start'];
     //new chng
 
