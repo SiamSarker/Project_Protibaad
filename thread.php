@@ -1,6 +1,23 @@
 <?php include 'includes/connection.php'; ?>
-<?php include('includes/adminheader.php');  ?>
-<?php include 'includes/adminnav.php'; ?>
+<?php include('dashboard/includes/adminheader.php');  ?>
+<?php
+
+//if (!isset($_SESSION['username'])) {
+//    header("Location: welcome.php");
+//}
+
+session_start();
+$sql = "SELECT * FROM blogs";
+$result = mysqli_query($conn, $sql);
+?>
+
+
+<?php include('includes/user_header.php') ?>
+
+    <!-- header section starts  -->
+
+    <?php include('includes/user_navbar.php') ?>
+
 
 
 <?php
@@ -10,13 +27,6 @@ $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $title = $row['thread_title'];
     $desc = $row['thread_desc'];
-    // $thread_user_id = $row['thread_user_id'];
-
-    // // Query the users table to find out the name of OP
-    // $sql2 = "SELECT user_email FROM `users` WHERE sno='$thread_user_id'";
-    // $result2 = mysqli_query($conn, $sql2);
-    // $row2 = mysqli_fetch_assoc($result2);
-    // $posted_by = $row2['user_email'];
 }
 
 ?>
@@ -39,7 +49,7 @@ if ($method == 'POST') {
     if ($showAlert) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> Your comment has been added!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="background-color: #333;">
                             <span aria-hidden="true">&times;</span>
                         </button>
                   </div>';
@@ -53,19 +63,19 @@ if ($method == 'POST') {
 </br>
 </br>
 </br>
-<div class="container my-4">
+<div class="container my-4" style="background-color: #fff;">
     <div class="jumbotron" style="padding-top: 100px;">
         <h1 class="display-4"><?php echo $title; ?></h1>
         <p class="lead"> <?php echo $desc; ?></p>
         <hr class="my-4">
-        <p>No Spam / Advertising / Self-promote in the forums is not allowed. Do not post copyright-infringing material. Do not post “offensive” posts, links or images. Do not cross post questions. Remain respectful of other members at all times.</p>
+        <p style="color: #333; font-weight: 100;"> No Spam / Advertising / Self-promote in the forums is not allowed. Do not post copyright-infringing material. Do not post “offensive” posts, links or images. Do not cross post questions. Remain respectful of other members at all times.</p>
         <!-- <p>Posted by: <em><?php echo $posted_by; ?></em></p> -->
     </div>
 </div>
 
 
 
-<div class="container" style="color:#fff;">
+<div class="container" style="color:#333;">
     <h1 class="py-2">Post a Comment</h1>
     <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="post">
         <div class="form-group">
@@ -73,7 +83,7 @@ if ($method == 'POST') {
             <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
             <!-- <input type="hidden" name="sno" value="'. $_SESSION["sno"]. '"> -->
         </div>
-        <button type="submit" class="btn btn-success">Post Comment</button>
+        <button type="submit" class="btn btn-success" style="background-color: #333;">Post Comment</button>
     </form>
 </div>
 
@@ -81,7 +91,7 @@ if ($method == 'POST') {
 
 
 <div class="container mb-5" id="ques" style="padding-top:30px;" >
-    <h1 class="py-2" style="color:#fff;">Discussions</h1>
+    <h1 class="py-2" style="color:#333;">Discussions</h1>
     <?php
     $id = $_GET['threadid'];
     $sql = "SELECT * FROM `comments` WHERE thread_id=$id ";
