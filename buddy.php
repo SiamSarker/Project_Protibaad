@@ -1,6 +1,23 @@
 <?php include 'includes/connection.php'; ?>
+<?php include('dashboard/includes/adminheader.php');  ?>
+
+<?php
+
+//if (!isset($_SESSION['username'])) {
+//    header("Location: welcome.php");
+//}
+
+session_start();
+$sql = "SELECT * FROM blogs";
+$result = mysqli_query($conn, $sql);
+?>
 
 
+<?php include('includes/user_header.php') ?>
+
+    <!-- header section starts  -->
+
+    <?php include('includes/user_navbar.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +39,9 @@
 
 <!-- menu section starts  -->
 </br>
-</br>
-</br>
 <section class="menu container" id="courses">
 
-    <h1 class="heading" style="color:white"> Q <span>Buddy</span> </h1>
+    <h1 class="heading" style="color:black"> Let's <span>Discuss</span> </h1>
 
     <div class="box-container ">
     <?php 
@@ -40,7 +55,7 @@
           
           <h3><a href="threadlist.php?catid=' . $id . '">' . $cat . '</a></h3>
           <p class="card-text">' . substr($desc, 0, 50). '... </p>
-          <a href="threadlist.php?catid=' . $id . ' "class="btn">View</a>
+          <a style="color: black;" href="threadlist.php?catid=' . $id . ' "class="btn">View</a>
       </div></div>';
          } 
          ?>  

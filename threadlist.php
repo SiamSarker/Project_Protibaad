@@ -1,6 +1,23 @@
 <?php include('includes/connection.php'); ?>
-<?php include('includes/adminheader.php');  ?>
-<?php include 'includes/adminnav.php'; ?>
+<?php include('dashboard/includes/adminheader.php');  ?>
+
+<?php
+
+//if (!isset($_SESSION['username'])) {
+//    header("Location: welcome.php");
+//}
+
+session_start();
+$sql = "SELECT * FROM blogs";
+$result = mysqli_query($conn, $sql);
+?>
+
+
+<?php include('includes/user_header.php') ?>
+
+    <!-- header section starts  -->
+
+    <?php include('includes/user_navbar.php') ?>
 
 
 <?php
@@ -44,42 +61,42 @@ if ($method == 'POST') {
 }
 ?>
 <!-- Category container starts here -->
-<div class="container my-4" style="padding-top: 80px;">
+<div class="container my-4" style="padding-top: 80px; background-color:white">
     <div class="jumbotron">
-        <h1 class="display-4"><?php echo $catname; ?> Q-buddy Session</h1>
+        <h1 class="display-4"><?php echo $catname; ?> Discussion Session</h1>
         <p class="lead"> <?php echo $catdesc; ?></p>
         <hr class="my-4">
         <p>No Spam / Advertising / Self-promote in the forums is not allowed. Do not
             post copyright-infringing material. Do not post “offensive” posts, links or images. Do not cross post
             questions. Remain respectful of other members at all times.</p>
-        <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-success btn-lg" href="#" role="button" style="background-color: #333;">Learn more</a>
     </div>
 </div>
 
 
 
 <div class="container">
-    <h1 class="py-2" style="color:#fff;">Start a Discussion</h1>
+    <h1 class="py-2" style="color:#333;">Start a Discussion</h1>
     <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="post">
-        <div class="form-group" style="color:#fff;">
-            <label for="exampleInputEmail1" style="font-size:15px" style="color:#fff;">Problem Title</label>
+        <div class="form-group" style="color:#333;">
+            <label for="exampleInputEmail1" style="font-size:15px" style="color:#333;">Problem Title</label>
             <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted" style="color:#fff;">Keep your title as short and crisp as
+            <small id="emailHelp" class="form-text text-muted" style="color:#333;">Keep your title as short and crisp as
                 possible</small>
         </div>
 
 
-        <div class="form-group" style="color:#fff;">
+        <div class="form-group" style="color:#333;">
             <label for="exampleFormControlTextarea1" style="font-size:15px" >Ellaborate your Problem</label>
             <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-success" >Submit</button>
+        <button type="submit" class="btn btn-success" style="background-color: #333;">Submit</button>
     </form>
 </div>
 
 
 <div class="container mb-5" id="ques" style="padding-top: 20px;">
-    <h1 class="py-2" style="color:#fff;"> Questions</h1>
+    <h1 class="py-2" style="color:#333;"> Questions</h1>
     <?php
     $id = $_GET['catid'];
     $sql = "SELECT * FROM `threads` WHERE thread_cat_id=$id";
@@ -107,8 +124,8 @@ if ($method == 'POST') {
     // echo var_dump($noResult);
     if ($noResult) {
         echo '<div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <p class="display-4">No Question Found</p>
+                    <div class="container" style="color: black;">
+                        <p class="display-4" >No Question Found</p>
                         <p class="lead"> Be the first person to ask a question</p>
                     </div>
                  </div> ';
