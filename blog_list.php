@@ -2,6 +2,8 @@
 
 <?php
 
+//edit
+
 if(!$_SESSION['role'] == 'admin'){
    header("Location: welcome.php");
 }
@@ -25,9 +27,6 @@ if (isset($_GET['delete'])) {
 
 <?php include('includes/user_header.php') ?>
 
-
-<!-- header section starts  -->
-
 <?php include('includes/user_navbar.php') ?>
 
 
@@ -39,9 +38,6 @@ if (isset($_GET['delete'])) {
         <div id="table-container"></div>
     </div>
 </div>
-
-
-<!-- features section ends -->
 
 
 <!-- footer section starts  -->

@@ -2,10 +2,6 @@
 
 <?php
 
-//if (!isset($_SESSION['username'])) {
-//    header("Location: welcome.php");
-//this is jubayer
-//}
 
 session_start();
 
@@ -34,13 +30,11 @@ if (isset($_POST['submit'])) {
             }
 
 
-            // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
                 echo "<script>alert('Sorry, your file was not uploaded.')</script>";
                 // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                    //  echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.";
                 } else {
                     echo "<script>alert('Sorry, there was an error uploading your file.')</script>";
                 }

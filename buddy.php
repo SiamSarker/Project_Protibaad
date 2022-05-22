@@ -6,7 +6,7 @@
 //if (!isset($_SESSION['username'])) {
 //    header("Location: welcome.php");
 //}
-
+//this is jobayer
 // session_start();
 $sql = "SELECT * FROM blogs";
 $result = mysqli_query($conn, $sql);

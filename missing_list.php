@@ -2,9 +2,7 @@
 
 <?php
 
-//if(!$_SESSION['role'] == 'admin'){
-//    header("Location: welcome.php");
-//}
+
 
 session_start();
 
@@ -89,16 +87,12 @@ if (isset($_GET['approve'])) {
 </div>
 
 
-<!-- features section ends -->
 
-
-<!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-<!-- custom js file link  -->
 <script src="js/script.js"></script>
 
 </body>
