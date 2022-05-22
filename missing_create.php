@@ -108,10 +108,6 @@ if (isset($_POST['submit'])) {
 </div>
 
 
-<!-- features section ends -->
-
-
-<!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
 
