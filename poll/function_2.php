@@ -13,8 +13,6 @@ function pdo_connect_mysql() {
     }
 }
 
-
-// Template header, feel free to customize it, but DO NOT INDENT THE PHP CODE
 function template_header($title) {
 // DO NOT INDENT THE BELOW PHP CODE OR YOU WILL ENCOUNTER ISSUES
 echo <<<EOT
