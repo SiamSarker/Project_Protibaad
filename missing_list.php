@@ -87,10 +87,7 @@ if (isset($_GET['approve'])) {
 </div>
 
 
-<!-- features section ends -->
 
-
-<!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
 
