@@ -2,8 +2,6 @@
 
 <?php
 
-//edit
-
 if(!$_SESSION['role'] == 'admin'){
    header("Location: welcome.php");
 }
@@ -40,7 +38,6 @@ if (isset($_GET['delete'])) {
 </div>
 
 
-<!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
 
