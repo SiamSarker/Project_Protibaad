@@ -52,7 +52,7 @@ $polls = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="box">
             <h3> Protibaad <img src="../image/fev.png" alt="Image"> </h3>
-<!--             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p> -->
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
             <div class="share">
                 <a href="#" class="fab fa-facebook-f"></a>
                 <a href="#" class="fab fa-twitter"></a>
