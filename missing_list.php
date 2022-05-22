@@ -2,9 +2,7 @@
 
 <?php
 
-//if(!$_SESSION['role'] == 'admin'){
-//    header("Location: welcome.php");
-//}
+
 
 session_start();
 
