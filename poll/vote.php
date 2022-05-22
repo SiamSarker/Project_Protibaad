@@ -25,7 +25,6 @@
             $stmt->execute([$_GET['id']]);
             // Fetch all the poll anwsers
             $poll_answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            // If the user clicked the "Vote" button...
             if (isset($_POST['poll_answer'])) {
                 // Update and increase the vote for the answer the user voted for
                 $stmt = $pdo->prepare('UPDATE poll_answers SET votes = votes + 1 WHERE id = ?');
