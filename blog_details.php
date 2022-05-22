@@ -24,8 +24,6 @@ if (isset($_GET['id'])) {
     <?php include('includes/user_navbar.php') ?>
 
 
-    <!-- features section starts  -->
-
     <section class="features margin-top" id="features">
         <h1 class="heading"> <span>Blog Details</span> </h1>
         <div class="box-container">
