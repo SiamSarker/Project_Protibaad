@@ -3,8 +3,7 @@
 <?php
 
 //if (!isset($_SESSION['username'])) {
-//    header("Location: welcome.php");
-//}
+
 
 session_start();
 if (isset($_GET['id'])) {
