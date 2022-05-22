@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    include 'function_2.php';
+    include 'function.php';
     // Connect to MySQL
     $pdo = pdo_connect_mysql();
     // If the GET request "id" exists (poll id)...
