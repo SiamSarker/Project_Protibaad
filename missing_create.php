@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 <?php include('includes/user_navbar.php') ?>
 
 
-<!-- features section starts  -->
+
 <div class="container">
     <div class="margin-top">
         <div class="login-card user-panel-card" style="justify-content: center";>
