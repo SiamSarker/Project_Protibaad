@@ -27,9 +27,6 @@ if (isset($_GET['delete'])) {
 
 <?php include('includes/user_header.php') ?>
 
-
-<!-- header section starts  -->
-
 <?php include('includes/user_navbar.php') ?>
 
 
