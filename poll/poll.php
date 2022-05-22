@@ -44,8 +44,6 @@ $polls = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 
-//section footer
-
 <section class="footer">
 
     <div class="box-container">
