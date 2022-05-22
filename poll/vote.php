@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    include 'function.php';
+    include 'function_2.php';
     // Connect to MySQL
     $pdo = pdo_connect_mysql();
     // If the GET request "id" exists (poll id)...
@@ -36,7 +36,7 @@
                 exit;
             }
         } else {
-            exit('Poll with that ID does not exist.');
+            exit('Poll with this ID does not exist.');
         }
     } else {
         exit('No poll ID specified.');
@@ -100,7 +100,6 @@
                     exit('No poll ID specified.');
                 }
                 ?>
-
                 <?= template_header('Poll Results') ?>
 
                 <div class="content poll-result">
@@ -117,11 +116,9 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
-
                 <?= template_footer() ?>
             </div>
         </div>
-
         <br />
         <br />
         <br />
