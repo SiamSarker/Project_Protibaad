@@ -2,8 +2,6 @@
 
 <?php
 
-//edit
-
 if(!$_SESSION['role'] == 'admin'){
    header("Location: welcome.php");
 }
