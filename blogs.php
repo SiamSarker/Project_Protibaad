@@ -11,6 +11,7 @@ $sql = "SELECT * FROM blogs";
 $result = mysqli_query($conn, $sql);
 ?>
 
+// blogs
 
 <?php include('includes/user_header.php') ?>
 
