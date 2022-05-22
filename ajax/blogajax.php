@@ -7,6 +7,6 @@ while ($row = mysqli_fetch_object($result))
 {
     array_push($data, $row);
 }
- # blogs updated hello
+ # blogs updated hello world
 echo json_encode($data);
 exit();
