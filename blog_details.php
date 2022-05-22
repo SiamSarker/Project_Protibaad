@@ -2,9 +2,6 @@
 
 <?php
 
-//if (!isset($_SESSION['username'])) {
-
-
 session_start();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
