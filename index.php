@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 	if ($result->num_rows > 0) {
 
 		// $iv=hex2bin($row['iv']);
-
+		// $user= str_openssl_dec($row['user'], $iv);
 
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['username'] = $row['username'];
