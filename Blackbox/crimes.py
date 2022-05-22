@@ -19,6 +19,7 @@ oldTitle = driver.title
 inputBtn.click()
 newTitle = driver.title
 
+# crime ajax updated
 if(oldTitle == newTitle):
 	print('invalid pass')
 else:
