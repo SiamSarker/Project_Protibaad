@@ -30,7 +30,6 @@ if (isset($_POST['submit'])) {
             }
 
 
-            // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
                 echo "<script>alert('Sorry, your file was not uploaded.')</script>";
                 // if everything is ok, try to upload file
