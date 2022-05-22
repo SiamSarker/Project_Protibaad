@@ -43,9 +43,6 @@ if (isset($_GET['delete'])) {
 </div>
 
 
-<!-- features section ends -->
-
-
 <!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
