@@ -51,7 +51,7 @@ $result_blogs = mysqli_query($conn, $sql_blogs);
 
         <div class="content">
             <h3>"দুর্নীতি মুক্ত<span> সমাজ </span> গড়ে তুলুন"</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore nisi.</p>
+            <p> </p>
             <a href="#" class="btn">Read More</a>
         </div>
 

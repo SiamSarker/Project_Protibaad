@@ -6,6 +6,15 @@
 //    header("Location: welcome.php");
 //}
 
+function str_openssl_enc($str, $iv){
+    $key='progga1234567890#%$%$#$%$';
+    $chiper="AES-128-CTR";
+    $options=0;
+    $str=openssl_encrypt($str, $chiper, $key, $options, $iv);
+    return $str;
+ 
+ }
+
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -46,15 +55,24 @@ if (isset($_POST['submit'])) {
                 }
             }
         }
+        $iv=openssl_random_pseudo_bytes(16);
+
         $title = $_POST['title'];
         $description = $_POST['description'];
         $image = $image_path;
         $location = $_POST['location'];
+
+        $title=str_openssl_enc($title, $iv);
+        $description=str_openssl_enc($description, $iv);
+        $location=str_openssl_enc($location, $iv);
+
+	    $iv=bin2hex($iv);
+
         $posted_by = $_SESSION['id'];
         $time=time();
         $posted_at = date("Y-m-d H:i:s",$time);
-        $sql = "INSERT INTO crimes (title, description, location, posted_by, posted_at, image)
-					VALUES ('$title', '$description', '$location', '$posted_by', '$posted_at', '$image')";
+        $sql = "INSERT INTO crimes (title, description, location, posted_by, posted_at, iv, image)
+					VALUES ('$title', '$description', '$location', '$posted_by', '$posted_at', '$iv','$image')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             echo "<script>alert('Thanks! Crime posted successfully.')</script>";

@@ -64,12 +64,12 @@ if (isset($_GET['id'])) {
     
     <!-- Email Social Media -->
     <a href="mailto:?Subject=<?=$site_title?>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <?=$site_url?>">
-        <img src="http://www.onlinecode.org/example/images/email.png" alt="Email share link" />
+        <img src="" alt="Email" />
     </a>
  
     <!-- Facebook Social Media -->
     <a href="http://www.facebook.com/sharer.php?u=<?=$site_url?>" target="_blank">
-        <img src="http://www.onlinecode.org/example/images/facebook.png" alt="Facebook share link" />
+        <img src="" alt="Facebook" />
     </a>
     
     

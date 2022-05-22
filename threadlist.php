@@ -111,7 +111,7 @@ if ($method == 'POST') {
         $thread_user_id = $row['thread_user_id'];
         $sql2 = "SELECT * FROM `users` WHERE id='$thread_user_id'";
         $result2 = mysqli_query($conn, $sql2);
-        $row2 = mysqli_fetch_assoc($result2);
+        $row2 = mysqli_fetch_assoc($result);
         $image = $row2['image'];
 
         echo '<div class="media my-3" style="background: #DAF7A6; padding: 10px">
@@ -142,6 +142,13 @@ if ($method == 'POST') {
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
 </script>
+<?php include('includes/user_footer.php') ?>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
 </body>
 
 </html>

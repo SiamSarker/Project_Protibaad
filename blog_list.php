@@ -2,25 +2,25 @@
 
 <?php
 
-//if(!$_SESSION['role'] == 'admin'){
-//    header("Location: welcome.php");
-//}
+if(!$_SESSION['role'] == 'admin'){
+   header("Location: welcome.php");
+}
 
-//session_start();
-//
-//$sql = "SELECT * FROM blogs";
-//$result = mysqli_query($conn, $sql);
-//
-//if (isset($_GET['delete'])) {
-//    $id = $_GET['delete'];
-//    $sql_del = "DELETE FROM `blogs` WHERE `id`='$id'";
-//    $result_del = mysqli_query($conn, $sql_del);
-//    if ($result_del == TRUE) {
-//        echo "<script>alert('Record deleted successfully.')</script>";
-//    }else{
-//        echo "<script>alert('Something went wrong.')</script>";
-//    }
-//}
+session_start();
+
+$sql = "SELECT * FROM blogs";
+$result = mysqli_query($conn, $sql);
+
+if (isset($_GET['delete'])) {
+   $id = $_GET['delete'];
+   $sql_del = "DELETE FROM `blogs` WHERE `id`='$id'";
+   $result_del = mysqli_query($conn, $sql_del);
+   if ($result_del == TRUE) {
+       echo "<script>alert('Record deleted successfully.')</script>";
+   }else{
+       echo "<script>alert('Something went wrong.')</script>";
+   }
+}
 ?>
 
 <?php include('includes/user_header.php') ?>

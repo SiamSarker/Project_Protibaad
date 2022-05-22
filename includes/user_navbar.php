@@ -23,7 +23,8 @@
     </form>
 
     <form action="" class="login-form">
-        <?php echo "<h1> " . $_SESSION['username'] . "</h1>"; ?>
+        <a href="profile.php"> <?php echo "<h1> " . $_SESSION['username'] . "</h1>"; ?>
+        </a>
         <div class="welcome">
             <a style="font-size: 25px;" href="logout.php">Logout</a>
         </div>

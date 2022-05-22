@@ -43,6 +43,69 @@ $result = mysqli_query($conn, $sql);
             <?php } ?>
         </div>
 
+
+
+
+
+        
+        <br>
+        <div>
+        <h2>Blogs data from ajax:</h2>
+        
+        <br><br>
+
+        
+        <table style="width: 100%; border: 2px;">
+            <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date</th>
+            </tr>
+
+            <tbody id="data" style="width: 100%; border: 2px;"></tbody>
+        </table>
+        
+        <script>
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", "ajax/blogajax.php", true);
+            ajax.send();
+        
+            ajax.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    console.log(data);
+        
+                    var html = "";
+                    for(var a = 0; a < data.length; a++) {
+                        var Title = data[a].title;
+                        var Description = data[a].description;
+                        var Date = data[a].posted_at;
+        
+                        html += "<tr>";
+                            html += "<td>" + Title + "</td>";
+                            html += "<td>" + Description + "</td>";
+                            html += "<td>" + Date + "</td>";
+                        html += "</tr>";
+                    }
+                    document.getElementById("data").innerHTML += html;
+                }
+            };
+        </script>
+
+        <br><br><br>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
     </section>
 
     <!-- features section ends -->

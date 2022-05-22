@@ -2,6 +2,15 @@
 
 include 'config.php';
 
+function str_openssl_dec($str, $iv){
+	$key='progga1234567890#%$%$#$%$';
+	$chiper="AES-128-CTR";
+	$options=0;
+	$str=openssl_decrypt($str, $chiper, $key, $options, $iv);
+	return $str;
+  
+  }
+
 session_start();
 
 error_reporting(0);
@@ -11,19 +20,23 @@ if (isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['submit'])) {
-	$email = $_POST['email'];
+	$user = $_POST['user'];
 	$password = md5($_POST['password']);
 
-	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+	$sql = "SELECT * FROM users WHERE username='$user' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
 	if ($result->num_rows > 0) {
+
+		// $iv=hex2bin($row['iv']);
+		// $user= str_openssl_dec($row['user'], $iv);
+
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['username'] = $row['username'];
 		$_SESSION['role'] = $row['role'];
 		$_SESSION['id'] = $row['id'];
 		header("Location: welcome.php");
 	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+		echo "<script>alert('Woops! user or Password is Wrong.')</script>";
 	}
 }
 
@@ -43,10 +56,10 @@ if (isset($_POST['submit'])) {
 </head>
 <body  style="background-image: url('image/bg1.jpg');">
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="" method="POST" class="login-user">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+			<input style="background-color:#e8f0fe ;" type="text" name="user" placeholder="Username" value="<?php echo $user; ?>" required>
 			</div>
 			<div class="input-group">
 				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>

@@ -1,9 +1,17 @@
 <?php 
 
+
 include 'config.php';
 
 error_reporting(0);
+function str_openssl_enc($str, $iv){
+   $key='progga1234567890#%$%$#$%$';
+   $chiper="AES-128-CTR";
+   $options=0;
+   $str=openssl_encrypt($str, $chiper, $key, $options, $iv);
+   return $str;
 
+}
 session_start();
 
 if (isset($_SESSION['username'])) {
@@ -11,17 +19,27 @@ if (isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['submit'])) {
+	$iv=openssl_random_pseudo_bytes(16);
+
 	$username = $_POST['username'];
 	$email = $_POST['email'];
+    
+	$email=str_openssl_enc($email, $iv);
+
+	$iv=bin2hex($iv);
+
+
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
+
+
 
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
+			$sql = "INSERT INTO users (username, email, password,iv)
+					VALUES ('$username', '$email', '$password', '$iv')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
@@ -55,21 +73,22 @@ if (isset($_POST['submit'])) {
 
 	<title>Protibaad</title>
 </head>
+
 <body  style="background-image: url('image/bg1.jpg');">
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="" method="POST" class="login-email login-user">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
+				<input style="background-color:#e8f0fe ;" type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
 			</div>
 			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+				<input style="background-color:#e8f0fe ;" type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+				<input style="background-color:#e8f0fe ;" type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
             </div>
             <div class="input-group">
-				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
+				<input style="background-color:#e8f0fe ;" type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
 			</div>
 			<div class="input-group">
 				<button name="submit" class="btn">Register</button>

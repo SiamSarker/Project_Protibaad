@@ -44,6 +44,74 @@ $result = mysqli_query($conn, $sql);
             <?php } ?>
         </div>
 
+
+
+
+
+
+
+
+        
+        <br>
+        <div>
+
+        <h2>Missing data from ajax:</h2>
+        
+        <br><br>
+
+        
+        <table style="width: 100%; border: 2px;">
+            <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Contact</th>
+            </tr>
+
+            <tbody id="data" style="width: 100%; border: 2px;"></tbody>
+        </table>
+        
+        <script>
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", "ajax/missingajax.php", true);
+            ajax.send();
+        
+            ajax.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    console.log(data);
+        
+                    var html = "";
+                    for(var a = 0; a < data.length; a++) {
+                        var Name = data[a].name;
+                        var Description = data[a].description;
+                        var Date = data[a].posted_at;
+                        var Contact = data[a].concern_contact;
+        
+                        html += "<tr>";
+                            html += "<td>" + Name + "</td>";
+                            html += "<td>" + Description + "</td>";
+                            html += "<td>" + Date + "</td>";
+                            html += "<td>" + Contact + "</td>";
+                        html += "</tr>";
+                    }
+                    document.getElementById("data").innerHTML += html;
+                }
+            };
+        </script>
+
+        <br><br><br>
+
+        </div>
+ 
+
+
+
+
+
+
+
+
     </section>
 
     <!-- features section ends -->

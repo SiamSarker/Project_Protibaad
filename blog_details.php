@@ -47,6 +47,41 @@ if (isset($_GET['id'])) {
             <?php } ?>
         </div>
 
+
+        <?php 
+    // pass web-site url
+    $site_url  = "http:///blog";
+    // post title
+    $site_title  = "Protibaad";
+?>
+
+<div id="button_share">
+   
+    <!-- Email Social Media -->
+    <a href="mailto:?Subject=<?=$site_title?>&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 <?=$site_url?>">
+        <img src="" alt="Email share link" />
+    </a>
+ 
+    <!-- Facebook Social Media -->
+    <a href="http://www.facebook.com/sharer.php?u=<?=$site_url?>" target="_blank">
+        <img src="" alt="Facebook share link" />
+    </a>
+    
+    <!-- Google+ Social Media -->
+    <a href="https://plus.google.com/share?url=<?=$site_url?>" target="_blank">
+        <img src="" alt="Google share link" />
+    </a>
+    
+    <!-- LinkedIn Social Media -->
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?=$site_url?>" target="_blank">
+        <img src="" alt="LinkedIn share link" />
+    </a>
+    
+
+
+</div>
+
+
     </section>
 
     <!-- features section ends -->

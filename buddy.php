@@ -7,7 +7,7 @@
 //    header("Location: welcome.php");
 //}
 
-session_start();
+// session_start();
 $sql = "SELECT * FROM blogs";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -56,16 +56,93 @@ $result = mysqli_query($conn, $sql);
           <h3><a href="threadlist.php?catid=' . $id . '">' . $cat . '</a></h3>
           <p class="card-text">' . substr($desc, 0, 50). '... </p>
           <a style="color: black;" href="threadlist.php?catid=' . $id . ' "class="btn">View</a>
-      </div></div>';
+          </div></div>';
          } 
-         ?>  
+    ?>  
 </div>
    
 
-</section>
 
-<script src="js/jquery.js"></script>
+
+
+
+
+<br>
+<div>
+<h2>Opinion data From ajax:</h2>
+
+
+<br><br>
+
+        
+<table style="width: 80%; border: 2px;">
+    <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    </tr>
+
+    <tbody id="data" style="width: 80%; border: 2px;"></tbody>
+</table>
+
+<script>
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "ajax/buddyajax.php", true);
+    ajax.send();
+
+    ajax.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText);
+            console.log(data);
+
+            var html = "";
+            for(var a = 0; a < data.length; a++) {
+                var Name = data[a].q_category_name;
+                var Description = data[a].q_category_des;
+                var Date = data[a].q_category_date;
+
+                html += "<tr>";
+                    html += "<td>" + Name + "</td>";
+                    html += "<td>" + Description + "</td>";
+                    html += "<td>" + Date + "</td>";
+                html += "</tr>";
+            }
+            document.getElementById("data").innerHTML += html;
+        }
+    };
+</script>
+
+<br><br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
 <script src="js/bootstrap.min.js"></script>
+<?php include('includes/user_footer.php') ?>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
 
 </body>
 </html>
