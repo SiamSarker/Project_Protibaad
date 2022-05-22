@@ -16,7 +16,6 @@ $result = mysqli_query($conn, $sql);
     <?php include('includes/user_navbar.php') ?>
 
 
-    <!-- features section starts  -->
 
     <section class="features margin-top" id="features">
         <h1 class="heading"> <span>Missing Reports</span> </h1>
