@@ -40,7 +40,6 @@ if (isset($_GET['delete'])) {
 </div>
 
 
-<!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
 
