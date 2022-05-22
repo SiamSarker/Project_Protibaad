@@ -30,7 +30,6 @@
                 // Update and increase the vote for the answer the user voted for
                 $stmt = $pdo->prepare('UPDATE poll_answers SET votes = votes + 1 WHERE id = ?');
                 $stmt->execute([$_POST['poll_answer']]);
-                // Redirect user to the result page
                 header('Location: vote.php?id=' . $_GET['id']);
                 exit;
             }
