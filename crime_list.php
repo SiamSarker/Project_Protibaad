@@ -4,7 +4,7 @@
 
 //if(!$_SESSION['role'] == 'admin'){
 //    header("Location: welcome.php");
-//}
+// crime list}
 
 session_start();
 

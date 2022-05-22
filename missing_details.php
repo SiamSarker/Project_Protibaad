@@ -2,9 +2,7 @@
 
 <?php
 
-//if (!isset($_SESSION['username'])) {
-//    header("Location: welcome.php");
-//}
+
 
 session_start();
 if (isset($_GET['id'])) {
@@ -28,7 +26,7 @@ if (isset($_GET['id'])) {
     <?php include('includes/user_navbar.php') ?>
 
 
-    <!-- features section starts  -->
+   
 
     <section class="features margin-top" id="features">
         <h1 class="heading"> <span>Missing Details</span> </h1>
@@ -51,7 +49,7 @@ if (isset($_GET['id'])) {
 
 
         <?php 
-    // pass web-site url
+
     $site_url  = "https://www.prothomalo.com/world/europe/%E0%A6%B0%E0%A7%81%E0%A6%B6-%E0%A6%AC%E0%A6%BE%E0%A6%B9%E0%A6%BF%E0%A6%A8%E0%A7%80%E0%A6%95%E0%A7%87-%E0%A6%B0%E0%A7%81%E0%A6%96%E0%A6%A4%E0%A7%87-%E0%A6%87%E0%A6%89%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A8%E0%A7%87-%E0%A6%AB%E0%A6%BF%E0%A6%A8%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%98%E0%A7%8B%E0%A6%B8%E0%A7%8D%E0%A6%9F-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%9A%E0%A7%8D%E0%A6%9B%E0%A7%87-%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%BE%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0";
     // post title
     $site_title  = "Protibaad";

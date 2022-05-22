@@ -2,9 +2,6 @@
 
 <?php
 
-//if (!isset($_SESSION['username'])) {
-//    header("Location: welcome.php");
-//}
 
 session_start();
 $sql = "SELECT * FROM missings  WHERE approve_status='1' ";
@@ -14,12 +11,11 @@ $result = mysqli_query($conn, $sql);
 
 <?php include('includes/user_header.php') ?>
 
-    <!-- header section starts  -->
+
 
     <?php include('includes/user_navbar.php') ?>
 
 
-    <!-- features section starts  -->
 
     <section class="features margin-top" id="features">
         <h1 class="heading"> <span>Missing Reports</span> </h1>

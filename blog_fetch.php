@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-// fetch query
 function fetch_data(){
     include 'includes/connection.php';
 

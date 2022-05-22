@@ -25,9 +25,6 @@ if (isset($_GET['delete'])) {
 
 <?php include('includes/user_header.php') ?>
 
-
-<!-- header section starts  -->
-
 <?php include('includes/user_navbar.php') ?>
 
 
@@ -41,10 +38,6 @@ if (isset($_GET['delete'])) {
 </div>
 
 
-<!-- features section ends -->
-
-
-<!-- footer section starts  -->
 
 <?php include('includes/user_footer.php') ?>
 

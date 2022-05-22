@@ -4,7 +4,7 @@
 
 //if (!isset($_SESSION['username'])) {
 //    header("Location: welcome.php");
-//}
+// crime create}
 
 function str_openssl_enc($str, $iv){
     $key='progga1234567890#%$%$#$%$';
