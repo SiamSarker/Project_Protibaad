@@ -23,7 +23,6 @@
             // MySQL query that selects all the poll answers
             $stmt = $pdo->prepare('SELECT * FROM poll_answers WHERE poll_id = ?');
             $stmt->execute([$_GET['id']]);
-            // Fetch all the poll anwsers
             $poll_answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (isset($_POST['poll_answer'])) {
                 // Update and increase the vote for the answer the user voted for
