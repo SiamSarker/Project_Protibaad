@@ -4,8 +4,7 @@
 
 //if (!isset($_SESSION['username'])) {
 //    header("Location: welcome.php");
-//this is jubayer
-//}
+
 
 session_start();
 
