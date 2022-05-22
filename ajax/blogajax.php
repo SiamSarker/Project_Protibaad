@@ -1,7 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "Protibaad");
 $result = mysqli_query($conn, "SELECT * FROM blogs");
- 
+ # branch Y
 $data = array();
 while ($row = mysqli_fetch_object($result))
 {
