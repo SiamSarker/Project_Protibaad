@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $sql);
 
 <?php include('includes/user_header.php') ?>
 
-    <!-- header section starts  -->
+
 
     <?php include('includes/user_navbar.php') ?>
 
