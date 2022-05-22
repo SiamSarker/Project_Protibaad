@@ -3,6 +3,17 @@ include 'includes/connection.php';
 ?>
 <?php
 session_start();
+function str_openssl_dec($str, $iv){
+    $key='progga1234567890#%$%$#$%$';
+    $chiper="AES-128-CTR";
+    $options=0;
+    $str=openssl_decrypt($str, $chiper, $key, $options, $iv);
+    return $str;
+ 
+ }
+
+
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,37 +57,74 @@ session_start();
                         </tr>
                     </thead>
                     <?php
+
+function fetch_data(){
+    include 'includes/connection.php';
+
+    $username =  $_SESSION['username'];
+    $sql = "SELECT * FROM  users WHERE `username`='$username'";
+    $result = $conn->query($sql);
+    if(mysqli_num_rows($result)>0){
+        $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $row;
+
+    }else{
+        return $row=[];
+    }
+
+   
+}
+$fetchData= fetch_data();
+show_data($fetchData);
+function show_data($fetchData){
+    echo '<table border="1" class="table">
+        <tr>
+            
+                <th scope="col">Title</th>
+                <th scope="col">Date</th>
+               
+        </tr>';
+    if(count($fetchData)>0){
+        $sn=1;
+        foreach($fetchData as $data){
+            $iv=$data['iv'];
+            $iv=hex2bin($iv);
+            $username = $data["username"];
+            $email = $data["email"];
+            $email =str_openssl_dec($email, $iv);
+            echo "<tr> 
+         
+          <td>".$username."</td>
+          <td>".$email."</td>
+         
+   </tr>";
+
+            $sn++;
+        }
+    }else{
+
+        echo "<tr>
+        <td colspan='7'>No Data Found</td>
+       </tr>";
+    }
+    echo "</table>";
+}
+
                     $username =  $_SESSION['username'];
-                    $sql = "SELECT username, email FROM  users WHERE `username`='$username'";
+                    $sql = "SELECT * FROM  users WHERE `username`='$username'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
 
                         while ($row = $result->fetch_assoc()) {
+                            $iv=$row['iv'];
+                            $iv=hex2bin($iv);
                             $username = $row["username"];
                             $email = $row["email"];
+                            $email =str_openssl_dec($email, $iv);
                     ?>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">User Name : </th>
-                                    <td>
-                                        <?php echo $username; ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Email : </th>
-                                    <td><?php echo $email; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                    </td>
-                                    <td>
-                                        <a href="userprofile.php">Edit</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-
+                           
+                            <a href="change-password.php">Update Password</a>
                     <?php
                         }
                     }
@@ -91,67 +139,6 @@ session_start();
     <br>
     <br>
     <br>
-
-
-    <br>
-<div>
-
-
-<div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2 mt-5">
-            <thead class="table-primary">
-                <h2>Profile data From ajax:</h2>
-
-
-<br><br>
-
-        
-<table style="width: 80%; border: 2px;">
-    <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Role</th>
-    </tr>
-
-    <tbody id="data" style="width: 80%; border: 2px;"></tbody>
-</table>
-
-<script>
-    var ajax = new XMLHttpRequest();
-    ajax.open("GET", "ajax/profileajax.php", true);
-    ajax.send();
-
-    ajax.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var data = JSON.parse(this.responseText);
-            console.log(data);
-
-            var html = "";
-            for(var a = 0; a < data.length; a++) {
-                var Name = data[a].username;
-                var Email = data[a].email;
-                var Role = data[a].role;
-
-                html += "<tr>";
-                    html += "<td>" + Name + "</td>";
-                    html += "<td>" + Email + "</td>";
-                    html += "<td>" + Role + "</td>";
-                html += "</tr>";
-            }
-            document.getElementById("data").innerHTML += html;
-        }
-    };
-</script>
-
-</div>
-
-<br><br><br>
-</div>
-
-
-
-
     <br>
     <br>
     <br>
@@ -159,7 +146,20 @@ session_start();
     <br>
     <?php include('includes/user_footer.php') ?>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script>
+    // $(document).on('click','#showData',function(e){
+    $(document).ready(function (){
+        $.ajax({
+            type: "GET",
+            url: "profile.php",
+            dataType: "html",
+            success: function(data){
+                $("#table-container").html(data);
+
+            }
+        });
+    });
+</script>
 
 </body>
 
