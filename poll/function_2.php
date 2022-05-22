@@ -32,7 +32,6 @@ EOT;
 
 // Template footer
 function template_footer() {
-// DO NOT INDENT THE PHP CODE
 echo <<<EOT
     </body>
 </html>
