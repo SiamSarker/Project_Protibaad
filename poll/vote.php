@@ -12,7 +12,6 @@
     include 'function_2.php';
     // Connect to MySQL
     $pdo = pdo_connect_mysql();
-    // If the GET request "id" exists (poll id)...
     if (isset($_GET['id'])) {
         // MySQL query that selects the poll records by the GET request "id"
         $stmt = $pdo->prepare('SELECT * FROM polls WHERE id = ?');
